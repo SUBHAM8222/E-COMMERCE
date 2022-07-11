@@ -1,10 +1,10 @@
 button {
     font: inherit;
     cursor: pointer;
-    background: #230052;
+    background: #423c4a;
     border: 1px solid #230052;
     color: #fff;
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 0.5rem;
     border-radius: 20px;
 }
 .productContainer {
