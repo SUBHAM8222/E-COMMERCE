@@ -3,6 +3,10 @@ import './App.css';
 import Product from './components/products';
 import Header from './components/Header/Header';
 import Cart from './components/Cart/CART';
+import CartProvider from './components/Store/CartProvider';
+// import About from './components/Pages/About';
+//import Home from './components/Pages/Home';
+//import Contactus from './components/Pages/Contactus';
 
 const App = () => {
 
@@ -13,16 +17,21 @@ const App = () => {
         cartisshown(true);
         
     }
+   const  hidecarthandler=()=>{
+      cartisshown(false);
+    }
   
  return(
-    <React.Fragment>
-      {cartshown&&<Cart></Cart>}  
-<Header onclick={showcarthandler}></Header>
-
-  <ul><Product></Product></ul>
-  </React.Fragment>
-    
   
+  
+      <CartProvider>
+      {cartshown&&<Cart onclick={hidecarthandler}></Cart>}
+ <Header onclick={showcarthandler}></Header> 
+
+   <ul><Product></Product></ul> 
+   </CartProvider> 
+//  <Contactus></Contactus>
+    
  )
 }
 
