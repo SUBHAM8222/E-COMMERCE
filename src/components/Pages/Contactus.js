@@ -1,5 +1,6 @@
 import React from "react";
 import "./Contactus.css";
+import { NavLink } from "react-router-dom";
 
 const Contactus = () => {
 
@@ -8,10 +9,22 @@ const Contactus = () => {
     <React.Fragment>
     <header>
         <ul className="header">
-          <li>HOME</li>
-          <li>STORE</li>
-          <li>ABOUT</li>
-          <li>Contact us</li>
+        <li>
+            <NavLink activeClassName="active" to="/Home">HOME</NavLink>
+          </li>
+
+          <NavLink to='/store'>STORE</NavLink>
+
+          <li>
+            <NavLink to="/about">ABOUT</NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/Contactus">Contact us</NavLink>
+          </li>
+          <li>
+            <NavLink to="/MOVIES">MOVIES</NavLink>
+          </li>
         </ul>
         <h1>THE GENERICS</h1>
       </header>

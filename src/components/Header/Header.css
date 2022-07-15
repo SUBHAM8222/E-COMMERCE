@@ -42,3 +42,8 @@ header h1{
 header li{
     margin:0px 40px;
 }
+.active {
+    color: #95bcf0;
+    padding-bottom: 0.25rem;
+    border-bottom: 4px solid green;
+  }
