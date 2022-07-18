@@ -6,9 +6,11 @@ const Movieslist=(props)=>{
     return(
 <ul>{props.movies.map((moviess)=>(
             <Display 
+            id={moviess.id}
             title={moviess.title}
-            releaseDate={moviess.release_date}
-            openingdate={moviess.opening_crawl}/>
+            releaseDate={moviess.releaseDate}
+            openingdate={moviess.openingText}
+            onDelete={props.onDelete.bind(null, moviess.id)}/>
 
        ) )}</ul>
         
