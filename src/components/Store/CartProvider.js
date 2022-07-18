@@ -2,26 +2,24 @@ import { useState } from "react";
 import Cartcontext from "./Cart-context";
 
 const CartProvider = (props) => {
-  const [items, updateitems] = useState([]);
+  const [items, updateItems] = useState([]);
 
   const additemhandler = (item) => {
-    let hasItem = false;
-    const newItemArray = [];
-    
-    items.forEach((element) => {
-      if (item.id === element.id) {
-        hasItem = true;
-        
-        newItemArray.push({...item,quantity:item.quantity+1})
-      
-    }
+    console.log(item);
+    let hasItem=false;
+    const newItemArray=[ ...items];
+    newItemArray.forEach((element,index )=> {
+        if(item.id===element.id){
+        hasItem=true;
+            newItemArray[index].quantity=Number(newItemArray[index].quantity)+Number(item.quantity);
+            
+        }
+    });
+    if(hasItem===false)
+    updateItems([...items,item]);
     else
-  {newItemArray.push(item);}
-    
-  });
-    if (hasItem === false) updateitems([...items, item]);
-    else updateitems(newItemArray);
-  };
+    updateItems(newItemArray);
+};
 
   const removeitemhandler = (id) => {
     {
@@ -34,7 +32,7 @@ const CartProvider = (props) => {
 
 
         })
-        updateitems(newItemArray);
+        updateItems(newItemArray);
     };
   };
 
