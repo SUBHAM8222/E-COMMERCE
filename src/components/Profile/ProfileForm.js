@@ -1,7 +1,7 @@
 import React,{useRef,useContext} from 'react';
 import classes from './ProfileForm.module.css';
 
-import AuthContext from '../Header/auth-context';
+import AuthContext from '../Store/Auth-Context';
 import { useHistory } from 'react-router-dom';
 
 const ProfileForm = () => {
@@ -24,7 +24,8 @@ const submitHandler = (event)=>{
        
      }
    }).then(res =>{
-    history.replace('./')
+    history.replace('./');
+    console.log(res);
 
    })
 }
