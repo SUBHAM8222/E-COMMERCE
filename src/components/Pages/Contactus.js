@@ -10,7 +10,7 @@ const Contactus = () => {
     <header>
         <ul className="header">
         <li>
-            <NavLink activeClassName="active" to="/Home">HOME</NavLink>
+            <NavLink to="/">HOME</NavLink>
           </li>
 
           <NavLink to='/store'>STORE</NavLink>

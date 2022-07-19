@@ -70,7 +70,7 @@ const Movies = () => {
       <header>
         <ul className="header">
           <li>
-            <NavLink activeClassName="active" to="/Home">
+            <NavLink  to="/">
               HOME
             </NavLink>
           </li>
@@ -100,7 +100,7 @@ const Movies = () => {
           <ul>
 
             {!loading && <Movieslist movies={movies} onDelete={deleteHandler}/>}
-            {loading&&movies.length==0 && <ul style={{ color: "red" }}> loading movies...</ul>}
+            {loading&&movies.length===0 && <ul style={{ color: "red" }}> loading movies...</ul>}
             {!loading && error && <p>{error}</p>}
             {!loading&&movies.length<=0&&<p>movies not found</p>}
           </ul>

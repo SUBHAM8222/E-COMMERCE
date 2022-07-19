@@ -16,9 +16,15 @@ const CartProvider = (props) => {
         }
     });
     if(hasItem===false)
+    {
     updateItems([...items,item]);
-    else
+    return [...items,item];
+    }
+    else{
     updateItems(newItemArray);
+    
+    return newItemArray;
+    }
 };
 
   const removeitemhandler = (id) => {

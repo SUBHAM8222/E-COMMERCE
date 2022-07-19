@@ -2,6 +2,7 @@ import React,{useContext} from "react";
 import Cartitem from "./CartItem";
 import './CART.css';
 import Cartcontext from "../Store/Cart-context";
+//import axios from "axios";
 
 // const cartElements = [
   // {
@@ -41,6 +42,16 @@ import Cartcontext from "../Store/Cart-context";
 const Cart = (props) => {
   let cartTotal=0;
 
+//   const Email=localStorage.getItem('Email');
+
+//   const E_mail=Email.replace('@','').replace('.','');
+//   console.log(E_mail);
+
+//  axios.get(`https://crudcrud.com/api/e5dae6a5f1ea443ba4b167509f1aa0a2/cart${E_mail}`).then(response=>{
+//   console.log(response.data[0]);
+//  })
+ 
+
   const cardcntx=useContext(Cartcontext);
   
   const items = cardcntx.items.map((itemss) => (
@@ -49,7 +60,7 @@ const Cart = (props) => {
       price={itemss.price}
       imageurl={itemss.imageurl}
       quantity={itemss.quantity}
-      id={itemss.id}
+       id={itemss.id}
     />
   ));
   cardcntx.items.forEach((item)=>{
@@ -83,9 +94,8 @@ const Cart = (props) => {
       </div>
     </div>
     {items}
-    
      
-       <div className="Total">Order Total'={cartTotal}</div>
+       <div className="Total">TOTAL AMOUNT={cartTotal}</div>
        {/* <button >Place Order</button> */}
          
   </div>

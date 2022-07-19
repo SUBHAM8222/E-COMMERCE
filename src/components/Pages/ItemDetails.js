@@ -81,7 +81,7 @@ const ItemDetails = () => {
 
       <h1>Product Detail</h1>
       {productsArr.map((products) => (
-       <div>{params.productId==products.id&&<div>
+       <div>{params.productId===products.id&&<div>
           <div>
             <h4>Title: {products.title}</h4>
           </div>

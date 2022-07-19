@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,Suspense } from "react";
 import { Route, Switch,Redirect } from "react-router-dom";
 
 import "./App.css";
@@ -6,15 +6,24 @@ import Product from "./components/products";
 import Header from "./components/Header/Header";
 import Cart from "./components/Cart/CART";
 import CartProvider from "./components/Store/CartProvider";
-import About from "./components/Pages/About";
-import Home from "./components/Pages/Home";
-import Contactus from "./components/Pages/Contactus";
-import Movies from "./components/Pages/Movies";
-import ItemDetails from "./components/Pages/ItemDetails";
-import AuthPage from "./components/Pages/Authpage";
+//import About from "./components/Pages/About";
+//import Home from "./components/Pages/Home";
+//import Contactus from "./components/Pages/Contactus";
+//import Movies from "./components/Pages/Movies";
+//import ItemDetails from "./components/Pages/ItemDetails";
+//import AuthPage from "./components/Pages/Authpage";
 import AuthContext from "./components/Store/Auth-Context";
-import UserProfile from "./components/Profile/UserProfile";
+//import UserProfile from "./components/Profile/UserProfile";
+import LoadingSpinner from "./components/Spinner/Spinner";
 import Footer from "./components/Pages/Footer";
+
+const About=React.lazy(()=>import('./components/Pages/About'));
+const Movies=React.lazy(()=>import('./components/Pages/Movies'));
+const Contactus=React.lazy(()=>import("./components/Pages/Contactus"));
+const AuthPage=React.lazy(()=> import('./components/Pages/Authpage'));
+const UserProfile=React.lazy(()=> import("./components/Profile/UserProfile"))
+const ItemDetails=React.lazy(()=> import("./components/Pages/ItemDetails"))
+const Home=React.lazy(()=> import ("./components/Pages/Home"));
 const App = () => {
   const authCtx = useContext(AuthContext);
   const [cartshown, cartisshown] = useState(false);
@@ -28,7 +37,9 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <main>
+      <Suspense fallback={<div className='centered'>
+<LoadingSpinner/>
+      </div>}>
         <CartProvider>
           <Switch>
             <Route path="/auth">
@@ -75,8 +86,9 @@ const App = () => {
 
           </Switch>
         </CartProvider>
-      </main>
+      
       <Footer></Footer>
+      </Suspense>
     </React.Fragment>
   );
 };

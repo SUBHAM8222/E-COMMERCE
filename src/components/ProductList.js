@@ -49,7 +49,7 @@ const E_mail=Email.replace('@','').replace('.','');
     </div>
     <div>
         
-        <span>$
+        <span>
         <span>{props.price}</span>
         </span>
     </div>
